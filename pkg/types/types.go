@@ -12,6 +12,16 @@ type PAN string
 // Category прелставляет собой категорию, в которой был совершён платёж (авто, аптеки, рестораны и т.д.).
 type Category string
 
+// Status прелставляет собой статус платежей.
+type Status string
+
+// Предопределённые статусы платежей.
+const (
+	StatusOk         Status = "OK"
+	StatusFail       Status = "FAIL"
+	StatusInProgress Status = "INPROGRESS"
+)
+
 // Коды валюты.
 const (
 	TJS Currency = "TJS"
@@ -24,6 +34,7 @@ type Payment struct {
 	ID       int
 	Amount   Money
 	Category Category
+	Status   Status
 }
 
 // Card представляет информацию о платёжной карте.
